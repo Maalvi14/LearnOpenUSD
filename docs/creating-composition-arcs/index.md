@@ -35,6 +35,7 @@ references-payloads/index
 encapsulation/index
 variant-sets/index
 inherits-specializes/index
+relocates/index
 strength-ordering/index
 :::
 

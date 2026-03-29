@@ -223,9 +223,17 @@ def copy_asset_folders(app, exception):
 
 
 def create_exercises_archives(app, exception):
+    if exception is not None:
+        return
+
     exercises_dir = Path(app.srcdir) / 'exercise_content'
     build_static_dir = Path(app.outdir) / '_static'
-    
+
+    if not exercises_dir.exists():
+        return
+
+    build_static_dir.mkdir(parents=True, exist_ok=True)
+
     for exercises in exercises_dir.iterdir():
         if exercises.is_dir():
             # Create zip file for exercises
